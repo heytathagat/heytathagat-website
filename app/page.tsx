@@ -226,7 +226,7 @@ export default function Home() {
                   className="relative z-10"
                 >
                   <Image
-                    src="/images/tathagat-profile.png"
+                    src="http://media.licdn.com/dms/image/v2/D5603AQEC3QtpeXV1Mw/profile-displayphoto-shrink_200_200/B56ZSYtm7NHQAY-/0/1737728881598?e=2147483647&v=beta&t=h1yV89A-TIOI13nvFV4WXDqMuyslxYMXjeQAujhUr0U"
                     alt="Tathagat Kumar"
                     width={400}
                     height={400}
@@ -569,7 +569,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 mt-16">
             {[
               {
-                name: "Thapar University",
+                name: "TIET Patiala",
                 logo: "/images/thapar-logo.png",
                 description:
                   "Providing mentorship to engineering students at one of India's premier technical institutions, focusing on entrepreneurship and innovation.",

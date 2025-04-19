@@ -837,7 +837,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-medium uppercase tracking-wider text-sm">Email</p>
-                      <p>heytathagat@gmail.com</p>
+                      <p>mail@heytathagat.in</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

@@ -144,10 +144,10 @@ export function SiteFooter() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="mailto:hey@heytathagat.in"
+                  href="mailto:mail@heytathagat.in"
                   className="group flex items-center text-sm transition-colors hover:text-gray-500"
                 >
-                  <span>hey@heytathagat.in</span>
+                  <span>mail@heytathagat.in</span>
                   <ArrowUpRight className="ml-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
                 </a>
               </li>

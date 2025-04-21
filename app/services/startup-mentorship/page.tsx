@@ -1,13 +1,12 @@
 "use client"
-
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, CheckCircle, Briefcase, Users, Rocket, TrendingUp, ArrowRight } from "lucide-react"
+import { CheckCircle, Briefcase, Users, Rocket, TrendingUp, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
+import { BookingButton } from "@/components/booking-button"
 
 export default function EntrepreneurshipPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -26,7 +25,7 @@ export default function EntrepreneurshipPage() {
         {/* Hero Section */}
         <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
           <div className="absolute inset-0 -z-10 bg-grid"></div>
-          
+
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
             className="container relative px-4 md:px-6"
@@ -35,7 +34,7 @@ export default function EntrepreneurshipPage() {
               <Badge className="mb-4 rounded-none border-2 border-black bg-black text-white hover:bg-black">
                 Service
               </Badge>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -57,23 +56,22 @@ export default function EntrepreneurshipPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button
+                <BookingButton
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                  sourceContext={{ page: "startup_mentorship", buttonType: "primary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
                     Book Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
                 <Button
                   variant="outline"
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
                 >
-                  <span className="relative z-10 flex items-center font-medium">
-                    View Success Stories
-                  </span>
+                  <span className="relative z-10 flex items-center font-medium">View Success Stories</span>
                 </Button>
               </motion.div>
             </div>
@@ -117,7 +115,7 @@ export default function EntrepreneurshipPage() {
                   ))}
                 </ul>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -164,7 +162,7 @@ export default function EntrepreneurshipPage() {
         <section className="py-24 md:py-32 bg-black text-white relative overflow-hidden">
           <div className="container px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -247,14 +245,15 @@ export default function EntrepreneurshipPage() {
                   With proper guidance, you can significantly improve your odds of success. My mentored startups
                   consistently outperform these industry averages.
                 </p>
-                <Button
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                <BookingButton
+                  className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
+                  sourceContext={{ page: "startup_mentorship", buttonType: "secondary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
-                    Get the Advantage - Book Your Call
+                    Claim Your Free Session
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
               </motion.div>
             </div>
           </div>
@@ -273,7 +272,7 @@ export default function EntrepreneurshipPage() {
               >
                 Success Stories
               </motion.h2>
-              
+
               <div className="space-y-6">
                 {[
                   {
@@ -343,7 +342,7 @@ export default function EntrepreneurshipPage() {
               >
                 Ready to Beat the Odds?
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -353,7 +352,7 @@ export default function EntrepreneurshipPage() {
               >
                 Book a free 30-minute startup strategy session where we'll:
               </motion.p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {[
                   "Analyze your biggest challenges",
@@ -375,21 +374,22 @@ export default function EntrepreneurshipPage() {
                   </motion.div>
                 ))}
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button
+                <BookingButton
                   className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
+                  sourceContext={{ page: "startup_mentorship", buttonType: "secondary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
                     Claim Your Free Session
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
               </motion.div>
             </div>
           </div>

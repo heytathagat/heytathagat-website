@@ -1,13 +1,12 @@
 "use client"
-
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, BarChart, Target, Smartphone, Mail, Search, Hash, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
+import { BookingButton } from "@/components/booking-button"
 
 export default function DigitalMarketingPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -26,7 +25,7 @@ export default function DigitalMarketingPage() {
         {/* Hero Section */}
         <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
           <div className="absolute inset-0 -z-10 bg-grid"></div>
-          
+
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
             className="container relative px-4 md:px-6"
@@ -35,7 +34,7 @@ export default function DigitalMarketingPage() {
               <Badge className="mb-4 rounded-none border-2 border-black bg-black text-white hover:bg-black">
                 Service
               </Badge>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -49,7 +48,8 @@ export default function DigitalMarketingPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
               >
-                Data-driven digital marketing solutions that deliver measurable results and accelerate your business growth.
+                Data-driven digital marketing solutions that deliver measurable results and accelerate your business
+                growth.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -57,23 +57,22 @@ export default function DigitalMarketingPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button
+                <BookingButton
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                  sourceContext={{ page: "digital_marketing", buttonType: "primary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
                     Get Free Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
                 <Button
                   variant="outline"
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
                 >
-                  <span className="relative z-10 flex items-center font-medium">
-                    View Case Studies
-                  </span>
+                  <span className="relative z-10 flex items-center font-medium">View Case Studies</span>
                 </Button>
               </motion.div>
             </div>
@@ -92,7 +91,7 @@ export default function DigitalMarketingPage() {
               >
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Digital Marketing Matters</h2>
                 <p className="mb-6">
-                  In today's digital-first world, having a strategic online presence isn't optional - it's essential for 
+                  In today's digital-first world, having a strategic online presence isn't optional - it's essential for
                   reaching your customers and driving business growth.
                 </p>
                 <ul className="space-y-4">
@@ -101,7 +100,7 @@ export default function DigitalMarketingPage() {
                     "Digital marketing delivers 3x better ROI than traditional marketing",
                     "Businesses using data-driven strategies grow 5x faster",
                     "Personalized campaigns increase conversions by 200%",
-                    "Omnichannel customers spend 30% more than single-channel"
+                    "Omnichannel customers spend 30% more than single-channel",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -117,7 +116,7 @@ export default function DigitalMarketingPage() {
                   ))}
                 </ul>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -164,7 +163,7 @@ export default function DigitalMarketingPage() {
         <section className="py-24 md:py-32 bg-black text-white relative overflow-hidden">
           <div className="container px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,16 +243,15 @@ export default function DigitalMarketingPage() {
               >
                 <h3 className="text-xl font-bold mb-4">These results are achievable for your business</h3>
                 <p className="mb-8 max-w-2xl mx-auto">
-                  My data-driven strategies have helped businesses across industries achieve consistent growth through digital channels.
+                  My data-driven strategies have helped businesses across industries achieve consistent growth through
+                  digital channels.
                 </p>
-                <Button
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
-                >
+                <BookingButton className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
                   <span className="relative z-10 flex items-center font-medium">
-                    Get Your Custom Strategy - Book a Call
+                    Claim Your Free Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
               </motion.div>
             </div>
           </div>
@@ -272,7 +270,7 @@ export default function DigitalMarketingPage() {
               >
                 Client Success Stories
               </motion.h2>
-              
+
               <div className="space-y-6">
                 {[
                   {
@@ -342,7 +340,7 @@ export default function DigitalMarketingPage() {
               >
                 Ready to Transform Your Digital Presence?
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -352,7 +350,7 @@ export default function DigitalMarketingPage() {
               >
                 Book a free 30-minute digital marketing audit where we'll:
               </motion.p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {[
                   { icon: <Target className="h-5 w-5" />, text: "Analyze your current performance" },
@@ -374,21 +372,19 @@ export default function DigitalMarketingPage() {
                   </motion.div>
                 ))}
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button
-                  className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
-                >
+                <BookingButton className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
                   <span className="relative z-10 flex items-center font-medium">
                     Claim Your Free Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
               </motion.div>
             </div>
           </div>

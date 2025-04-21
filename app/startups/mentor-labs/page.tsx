@@ -2,12 +2,13 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ArrowRight, CheckCircle, Users, BookOpen, Lightbulb, Target, GraduationCap, BarChart, Clock, Globe } from "lucide-react"
+import { ArrowLeft, ArrowRight, Users, BookOpen, Lightbulb, Target, GraduationCap, Clock, Globe } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
+import { BookingButton } from "@/components/booking-button"
 
 export default function MentorLabsPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -25,15 +26,15 @@ export default function MentorLabsPage() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 -z-10 bg-grid"></div>
-        
+
         <motion.div
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="container relative px-4 md:px-6"
         >
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <Link href="/#startups">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="mb-4 rounded-none border-2 border-black bg-white text-black hover:bg-black hover:text-white"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -79,9 +80,7 @@ export default function MentorLabsPage() {
                 size="lg"
                 className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
               >
-                <span className="relative z-10 flex items-center font-medium">
-                  Key Takeaways
-                </span>
+                <span className="relative z-10 flex items-center font-medium">Key Takeaways</span>
               </Button>
             </motion.div>
           </div>
@@ -136,16 +135,16 @@ export default function MentorLabsPage() {
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-6">The Genesis of Mentor Labs</h2>
               <p className="mb-6">
-                Mentor Labs was born from my personal experience mentoring students at TIET and noticing a systemic gap - 
-                while students had theoretical knowledge, they lacked practical guidance from industry professionals.
+                Mentor Labs was born from my personal experience mentoring students at TIET and noticing a systemic gap
+                - while students had theoretical knowledge, they lacked practical guidance from industry professionals.
               </p>
               <p className="mb-6">
-                Launched in March 2025, we started with just 12 mentors from my personal network. The breakthrough came 
-                when we focused on structured mentorship programs rather than casual connections, creating measurable 
+                Launched in March 2025, we started with just 12 mentors from my personal network. The breakthrough came
+                when we focused on structured mentorship programs rather than casual connections, creating measurable
                 outcomes for both students and mentors.
               </p>
               <p>
-                Our unique value proposition was "Outcome-Focused Mentorship" - every engagement had clear learning 
+                Our unique value proposition was "Outcome-Focused Mentorship" - every engagement had clear learning
                 objectives and success metrics, making the experience valuable for both parties.
               </p>
             </motion.div>
@@ -158,23 +157,24 @@ export default function MentorLabsPage() {
               className="space-y-8"
             >
               <h3 className="text-xl font-bold">Key Challenges & Solutions</h3>
-              
+
               {[
                 {
                   challenge: "Engaging High-Quality Mentors",
-                  solution: "Created a 'Mentor Impact Score' that tracked student outcomes, giving professionals tangible proof of their influence",
-                  result: "Increased mentor retention by 68%"
+                  solution:
+                    "Created a 'Mentor Impact Score' that tracked student outcomes, giving professionals tangible proof of their influence",
+                  result: "Increased mentor retention by 68%",
                 },
                 {
                   challenge: "Matching Effectiveness",
                   solution: "Developed a 3-layer matching algorithm combining skills, personality, and goals",
-                  result: "Improved session satisfaction scores from 3.2 to 4.7/5"
+                  result: "Improved session satisfaction scores from 3.2 to 4.7/5",
                 },
                 {
                   challenge: "Student Commitment",
                   solution: "Implemented prep-work requirements and progress tracking to increase accountability",
-                  result: "Reduced no-show rate from 32% to 8%"
-                }
+                  result: "Reduced no-show rate from 32% to 8%",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -185,7 +185,9 @@ export default function MentorLabsPage() {
                   className="rounded-none border-2 border-black p-6 hover:bg-black hover:text-white transition-colors"
                 >
                   <h4 className="font-bold mb-2">{item.challenge}</h4>
-                  <p className="mb-3"><span className="font-semibold">Solution:</span> {item.solution}</p>
+                  <p className="mb-3">
+                    <span className="font-semibold">Solution:</span> {item.solution}
+                  </p>
                   <p className="font-medium">Result: {item.result}</p>
                 </motion.div>
               ))}
@@ -216,9 +218,9 @@ export default function MentorLabsPage() {
                   points: [
                     "Partnered with 50+ college entrepreneurship cells",
                     "Created student ambassador program with 120+ reps",
-                    "Developed 'Mentorship Impact Reports' for universities"
+                    "Developed 'Mentorship Impact Reports' for universities",
                   ],
-                  result: "Student signups grew 15% month-over-month"
+                  result: "Student signups grew 15% month-over-month",
                 },
                 {
                   title: "Mentor Engagement",
@@ -226,9 +228,9 @@ export default function MentorLabsPage() {
                   points: [
                     "Built mentor certification program with LinkedIn badges",
                     "Created exclusive networking events for mentors",
-                    "Developed mentor-to-mentor knowledge sharing"
+                    "Developed mentor-to-mentor knowledge sharing",
                   ],
-                  result: "Average mentor tenure increased to 14 months"
+                  result: "Average mentor tenure increased to 14 months",
                 },
                 {
                   title: "Program Structure",
@@ -236,9 +238,9 @@ export default function MentorLabsPage() {
                   points: [
                     "Standardized 6-week mentorship tracks",
                     "Created specialized tracks for tech, business, and design",
-                    "Implemented progress tracking and certification"
+                    "Implemented progress tracking and certification",
                   ],
-                  result: "Program completion rate reached 82%"
+                  result: "Program completion rate reached 82%",
                 },
                 {
                   title: "Technology Platform",
@@ -246,10 +248,10 @@ export default function MentorLabsPage() {
                   points: [
                     "Built scheduling system with calendar integration",
                     "Created session preparation tools for both parties",
-                    "Developed progress dashboards with metrics"
+                    "Developed progress dashboards with metrics",
                   ],
-                  result: "Platform NPS score of 72 (industry average 38)"
-                }
+                  result: "Platform NPS score of 72 (industry average 38)",
+                },
               ].map((strategy, index) => (
                 <motion.div
                   key={index}
@@ -301,39 +303,39 @@ export default function MentorLabsPage() {
             >
               Measurable Impact
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   metric: "Career Advancement",
                   icon: <Target className="h-6 w-6" />,
-                  stats: "78% of students reported career benefits within 6 months"
+                  stats: "78% of students reported career benefits within 6 months",
                 },
                 {
                   metric: "Startup Success",
                   icon: <Lightbulb className="h-6 w-6" />,
-                  stats: "32 mentee-founded startups raised funding"
+                  stats: "32 mentee-founded startups raised funding",
                 },
                 {
                   metric: "Skill Development",
                   icon: <BookOpen className="h-6 w-6" />,
-                  stats: "94% reported measurable skill improvement"
+                  stats: "94% reported measurable skill improvement",
                 },
                 {
                   metric: "Mentor Satisfaction",
                   icon: <Users className="h-6 w-6" />,
-                  stats: "89% of mentors renewed their commitment"
+                  stats: "89% of mentors renewed their commitment",
                 },
                 {
                   metric: "Time Efficiency",
                   icon: <Clock className="h-6 w-6" />,
-                  stats: "Reduced mentor prep time by 65% with our tools"
+                  stats: "Reduced mentor prep time by 65% with our tools",
                 },
                 {
                   metric: "Diversity",
                   icon: <Globe className="h-6 w-6" />,
-                  stats: "Achieved 42% female participation in tech programs"
-                }
+                  stats: "Achieved 42% female participation in tech programs",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -377,25 +379,29 @@ export default function MentorLabsPage() {
             >
               Lessons Learned
             </motion.h2>
-            
+
             <div className="space-y-6">
               {[
                 {
                   lesson: "Structure Creates Value",
-                  detail: "Unlike casual mentorship platforms, our structured programs with clear outcomes attracted higher-quality mentors and more committed students."
+                  detail:
+                    "Unlike casual mentorship platforms, our structured programs with clear outcomes attracted higher-quality mentors and more committed students.",
                 },
                 {
                   lesson: "Dual-Sided Engagement is Critical",
-                  detail: "We learned to design engagement features for both mentors and students, creating reciprocal value that sustained participation."
+                  detail:
+                    "We learned to design engagement features for both mentors and students, creating reciprocal value that sustained participation.",
                 },
                 {
                   lesson: "Institutional Partnerships Scale Impact",
-                  detail: "Working with universities rather than just individual students gave us distribution at scale while providing credibility."
+                  detail:
+                    "Working with universities rather than just individual students gave us distribution at scale while providing credibility.",
                 },
                 {
                   lesson: "Metrics Drive Improvement",
-                  detail: "Implementing our Mentor Impact Score transformed vague goodwill into measurable professional development for mentors."
-                }
+                  detail:
+                    "Implementing our Mentor Impact Score transformed vague goodwill into measurable professional development for mentors.",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -434,7 +440,7 @@ export default function MentorLabsPage() {
             >
               Want to Build an Education Platform?
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -442,23 +448,25 @@ export default function MentorLabsPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-10"
             >
-              Book a strategy session to discuss how these principles can be applied to your education technology venture.
+              Book a strategy session to discuss how these principles can be applied to your education technology
+              venture.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Button
+              <BookingButton
                 className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                sourceContext={{ page: "mentor_labs_case_study", buttonType: "cta" }}
               >
                 <span className="relative z-10 flex items-center font-medium">
                   Book Strategy Call
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </span>
-              </Button>
+              </BookingButton>
             </motion.div>
           </div>
         </div>

@@ -27,6 +27,7 @@ import { SectionHeading } from "@/components/section-heading"
 import { LetterReveal } from "@/components/letter-reveal"
 import { DynamicText } from "@/components/dynamic-text"
 import { MarqueeText } from "@/components/marquee-text"
+import { BookingButton } from "@/components/booking-button"
 
 export default function Home() {
   const isMobile = useMobile()
@@ -857,9 +858,12 @@ export default function Home() {
                 <p className="mb-4">
                   Schedule a free 15-minute discovery call to discuss how I can help your business grow.
                 </p>
-                <Button className="w-full bg-black text-white rounded-none hover:bg-white hover:text-black border-2 border-black transition-colors">
+                <BookingButton
+                  className="w-full bg-black text-white rounded-none hover:bg-white hover:text-black border-2 border-black transition-colors"
+                  sourceContext={{ page: "homepage", buttonType: "contact_section" }}
+                >
                   Book a Call
-                </Button>
+                </BookingButton>
               </div>
 
               <div>

@@ -1,13 +1,12 @@
 "use client"
-
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Diamond, Eye, Target, Layers, Star, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
+import { BookingButton } from "@/components/booking-button"
 
 export default function BrandStrategyPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -26,7 +25,7 @@ export default function BrandStrategyPage() {
         {/* Hero Section */}
         <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
           <div className="absolute inset-0 -z-10 bg-grid"></div>
-          
+
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
             className="container relative px-4 md:px-6"
@@ -35,7 +34,7 @@ export default function BrandStrategyPage() {
               <Badge className="mb-4 rounded-none border-2 border-black bg-black text-white hover:bg-black">
                 Service
               </Badge>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -49,7 +48,8 @@ export default function BrandStrategyPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
               >
-                Transform your business with a powerful brand strategy that differentiates you in the market and connects deeply with your audience.
+                Transform your business with a powerful brand strategy that differentiates you in the market and
+                connects deeply with your audience.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -57,23 +57,22 @@ export default function BrandStrategyPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button
+                <BookingButton
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                  sourceContext={{ page: "brand_strategy", buttonType: "primary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
-                    Get Brand Audit
+                    Book Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
                 <Button
                   variant="outline"
                   size="lg"
                   className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
                 >
-                  <span className="relative z-10 flex items-center font-medium">
-                    View Case Studies
-                  </span>
+                  <span className="relative z-10 flex items-center font-medium">View Case Studies</span>
                 </Button>
               </motion.div>
             </div>
@@ -92,7 +91,8 @@ export default function BrandStrategyPage() {
               >
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">The Power of Strategic Branding</h2>
                 <p className="mb-6">
-                  A strong brand isn't just a logo - it's a comprehensive system that influences how customers perceive, experience, and engage with your business at every touchpoint.
+                  A strong brand isn't just a logo - it's a comprehensive system that influences how customers perceive,
+                  experience, and engage with your business at every touchpoint.
                 </p>
                 <ul className="space-y-4">
                   {[
@@ -100,7 +100,7 @@ export default function BrandStrategyPage() {
                     "Consistent branding increases revenue by 33%",
                     "64% of consumers cite shared values as primary brand relationship driver",
                     "Emotionally connected customers have 306% higher lifetime value",
-                    "Purpose-driven brands outperform the stock market by 134%"
+                    "Purpose-driven brands outperform the stock market by 134%",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -116,7 +116,7 @@ export default function BrandStrategyPage() {
                   ))}
                 </ul>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -163,7 +163,7 @@ export default function BrandStrategyPage() {
         <section className="py-24 md:py-32 bg-black text-white relative overflow-hidden">
           <div className="container px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -178,12 +178,7 @@ export default function BrandStrategyPage() {
                   {
                     icon: <Eye className="h-6 w-6" />,
                     title: "Brand Identity",
-                    items: [
-                      "Visual identity system",
-                      "Logo & design language",
-                      "Brand guidelines",
-                      "Tone of voice",
-                    ],
+                    items: ["Visual identity system", "Logo & design language", "Brand guidelines", "Tone of voice"],
                   },
                   {
                     icon: <Target className="h-6 w-6" />,
@@ -246,11 +241,10 @@ export default function BrandStrategyPage() {
               >
                 <h3 className="text-xl font-bold mb-4">A strong brand is your most valuable business asset</h3>
                 <p className="mb-8 max-w-2xl mx-auto">
-                  Companies that invest in strategic branding consistently outperform competitors and command premium pricing.
+                  Companies that invest in strategic branding consistently outperform competitors and command premium
+                  pricing.
                 </p>
-                <Button
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
-                >
+                <Button className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black">
                   <span className="relative z-10 flex items-center font-medium">
                     Build Your Brand Strategy - Book a Call
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -274,7 +268,7 @@ export default function BrandStrategyPage() {
               >
                 Brand Transformation Stories
               </motion.h2>
-              
+
               <div className="space-y-6">
                 {[
                   {
@@ -344,7 +338,7 @@ export default function BrandStrategyPage() {
               >
                 Ready to Elevate Your Brand?
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -354,7 +348,7 @@ export default function BrandStrategyPage() {
               >
                 Book a free 30-minute brand strategy session where we'll:
               </motion.p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {[
                   { icon: <Star className="h-5 w-5" />, text: "Assess your current brand equity" },
@@ -376,21 +370,22 @@ export default function BrandStrategyPage() {
                   </motion.div>
                 ))}
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button
+                <BookingButton
                   className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
+                  sourceContext={{ page: "brand_strategy", buttonType: "secondary_cta" }}
                 >
                   <span className="relative z-10 flex items-center font-medium">
                     Claim Your Free Session
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </Button>
+                </BookingButton>
               </motion.div>
             </div>
           </div>

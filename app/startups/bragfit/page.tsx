@@ -2,12 +2,13 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ArrowRight, CheckCircle, ShoppingBag, Truck, CreditCard, Shirt, Users, TrendingUp, DollarSign, Globe } from "lucide-react"
+import { ArrowLeft, ArrowRight, Truck, Shirt, Users, TrendingUp, DollarSign, Globe } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
+import { BookingButton } from "@/components/booking-button"
 
 export default function BragfitPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -25,15 +26,15 @@ export default function BragfitPage() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 -z-10 bg-grid"></div>
-        
+
         <motion.div
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="container relative px-4 md:px-6"
         >
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <Link href="/#startups">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="mb-4 rounded-none border-2 border-black bg-white text-black hover:bg-black hover:text-white"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -79,9 +80,7 @@ export default function BragfitPage() {
                 size="lg"
                 className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
               >
-                <span className="relative z-10 flex items-center font-medium">
-                  Key Takeaways
-                </span>
+                <span className="relative z-10 flex items-center font-medium">Key Takeaways</span>
               </Button>
             </motion.div>
           </div>
@@ -136,16 +135,18 @@ export default function BragfitPage() {
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-6">The Founding Story</h2>
               <p className="mb-6">
-                Bragfit was born from a simple observation: while the fashion market was saturated with mass-produced clothing, 
-                there was a growing demand for personalized, high-quality apparel that allowed individuals to express their unique style.
+                Bragfit was born from a simple observation: while the fashion market was saturated with mass-produced
+                clothing, there was a growing demand for personalized, high-quality apparel that allowed individuals to
+                express their unique style.
               </p>
               <p className="mb-6">
-                In September 2021, with no formal fashion background but a clear vision, I launched Bragfit as a bootstrapped 
-                operation from Sangrur, Punjab. The initial capital was just ₹50,000 ($600) - enough for samples and a basic website.
+                In September 2021, with no formal fashion background but a clear vision, I launched Bragfit as a
+                bootstrapped operation from Sangrur, Punjab. The initial capital was just ₹50,000 ($600) - enough for
+                samples and a basic website.
               </p>
               <p>
-                Our breakthrough came when we focused on three key differentiators: premium fabrics, true customization (not just 
-                printed designs), and a customer experience that made people feel like fashion designers.
+                Our breakthrough came when we focused on three key differentiators: premium fabrics, true customization
+                (not just printed designs), and a customer experience that made people feel like fashion designers.
               </p>
             </motion.div>
 
@@ -157,23 +158,26 @@ export default function BragfitPage() {
               className="space-y-8"
             >
               <h3 className="text-xl font-bold">Key Challenges & Solutions</h3>
-              
+
               {[
                 {
                   challenge: "Consumer Trust in Custom Clothing",
-                  solution: "Implemented a 'Design Preview' tool and 100% satisfaction guarantee to reduce purchase anxiety",
-                  result: "Increased conversion rate by 47%"
+                  solution:
+                    "Implemented a 'Design Preview' tool and 100% satisfaction guarantee to reduce purchase anxiety",
+                  result: "Increased conversion rate by 47%",
                 },
                 {
                   challenge: "Scaling Custom Production",
-                  solution: "Developed a modular manufacturing system allowing customization without sacrificing efficiency",
-                  result: "Reduced production time by 35% while maintaining quality"
+                  solution:
+                    "Developed a modular manufacturing system allowing customization without sacrificing efficiency",
+                  result: "Reduced production time by 35% while maintaining quality",
                 },
                 {
                   challenge: "Differentiating in Crowded Market",
-                  solution: "Positioned as 'Bespoke Fashion for Everyday Wear' with focus on fabric quality over fast fashion",
-                  result: "Achieved 3x industry average price point with 85% retention rate"
-                }
+                  solution:
+                    "Positioned as 'Bespoke Fashion for Everyday Wear' with focus on fabric quality over fast fashion",
+                  result: "Achieved 3x industry average price point with 85% retention rate",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -184,7 +188,9 @@ export default function BragfitPage() {
                   className="rounded-none border-2 border-black p-6 hover:bg-black hover:text-white transition-colors"
                 >
                   <h4 className="font-bold mb-2">{item.challenge}</h4>
-                  <p className="mb-3"><span className="font-semibold">Solution:</span> {item.solution}</p>
+                  <p className="mb-3">
+                    <span className="font-semibold">Solution:</span> {item.solution}
+                  </p>
                   <p className="font-medium">Result: {item.result}</p>
                 </motion.div>
               ))}
@@ -215,9 +221,9 @@ export default function BragfitPage() {
                   points: [
                     "Leveraged Instagram influencers in micro-niches (artists, fitness, entrepreneurs)",
                     "Developed referral program with 25% discount for both parties",
-                    "Focus on customer-generated content (CGC) for social proof"
+                    "Focus on customer-generated content (CGC) for social proof",
                   ],
-                  result: "CAC reduced from ₹2,500 to ₹1,200 over 12 months"
+                  result: "CAC reduced from ₹2,500 to ₹1,200 over 12 months",
                 },
                 {
                   title: "Product Expansion",
@@ -225,9 +231,9 @@ export default function BragfitPage() {
                   points: [
                     "Started with just t-shirts, expanded to 12 product categories",
                     "Introduced seasonal limited editions to drive urgency",
-                    "Added 'Design Collaborations' with emerging artists"
+                    "Added 'Design Collaborations' with emerging artists",
                   ],
-                  result: "Average order value increased from ₹1,899 to ₹3,450"
+                  result: "Average order value increased from ₹1,899 to ₹3,450",
                 },
                 {
                   title: "Operational Scaling",
@@ -235,9 +241,9 @@ export default function BragfitPage() {
                   points: [
                     "Partnered with regional fabric suppliers for better margins",
                     "Implemented inventory management system for custom pieces",
-                    "Established 3 regional production hubs across India"
+                    "Established 3 regional production hubs across India",
                   ],
-                  result: "Fulfillment time reduced from 14 to 7 days"
+                  result: "Fulfillment time reduced from 14 to 7 days",
                 },
                 {
                   title: "Brand Building",
@@ -245,10 +251,10 @@ export default function BragfitPage() {
                   points: [
                     "Positioned as 'The Anti-Fast Fashion Brand'",
                     "Developed strong visual identity with signature packaging",
-                    "Created 'Bragfit Stories' showcasing customer journeys"
+                    "Created 'Bragfit Stories' showcasing customer journeys",
                   ],
-                  result: "Brand search volume grew 320% in 2023"
-                }
+                  result: "Brand search volume grew 320% in 2023",
+                },
               ].map((strategy, index) => (
                 <motion.div
                   key={index}
@@ -300,25 +306,29 @@ export default function BragfitPage() {
             >
               Key Lessons Learned
             </motion.h2>
-            
+
             <div className="space-y-6">
               {[
                 {
                   lesson: "Premium Positioning Creates Loyalty",
-                  detail: "By charging 2-3x market average but delivering exceptional quality and experience, we built a passionate customer base that became brand advocates."
+                  detail:
+                    "By charging 2-3x market average but delivering exceptional quality and experience, we built a passionate customer base that became brand advocates.",
                 },
                 {
                   lesson: "Customization Scales With Systems",
-                  detail: "Developed a 'Customization Framework' that balanced infinite design options with production efficiency through smart constraints."
+                  detail:
+                    "Developed a 'Customization Framework' that balanced infinite design options with production efficiency through smart constraints.",
                 },
                 {
                   lesson: "Fashion Tech is Underleveraged",
-                  detail: "Invested early in AR try-on and design tools that reduced returns by 28% and increased average order value by 19%."
+                  detail:
+                    "Invested early in AR try-on and design tools that reduced returns by 28% and increased average order value by 19%.",
                 },
                 {
                   lesson: "Bootstrapping Forces Creativity",
-                  detail: "Without VC funding, we developed innovative customer financing options (like 'Pay in 3') that actually improved cash flow."
-                }
+                  detail:
+                    "Without VC funding, we developed innovative customer financing options (like 'Pay in 3') that actually improved cash flow.",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -357,7 +367,7 @@ export default function BragfitPage() {
             >
               Want to Build Your Fashion Brand?
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -367,21 +377,22 @@ export default function BragfitPage() {
             >
               Book a strategy session to discuss how these principles can be applied to your apparel business.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Button
+              <BookingButton
                 className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
+                sourceContext={{ page: "bragfit_case_study", buttonType: "cta" }}
               >
                 <span className="relative z-10 flex items-center font-medium">
                   Book Strategy Call
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </span>
-              </Button>
+              </BookingButton>
             </motion.div>
           </div>
         </div>

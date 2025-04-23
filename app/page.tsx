@@ -137,8 +137,8 @@ export default function Home() {
         "Working with Tathagat has been a game-changer for our studio. His deep understanding of brand positioning and digital marketing helped us establish a strong market presence. His hands-on approach and commitment to our success made all the difference in scaling our operations.",
     },
     {
-      name: "Shubhash",
-      company: "Overbites",
+      name: "Ansh Bansal",
+      company: "SwarnAI",
       testimonial:
         "Tathagat's mentorship came at a critical time for our startup. His practical advice on growth strategies and customer acquisition helped us navigate challenging market conditions. His ability to simplify complex business problems into actionable steps is truly remarkable.",
     },

@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import Script from "next/script"
 
 // Configure the Montserrat font with all the weights we need
 const montserrat = Montserrat({
@@ -29,6 +30,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-N23VE2MFN1" />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N23VE2MFN1');
+            `,
+          }}
+        />
+      </head>
       <body className={`${montserrat.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Preloader />

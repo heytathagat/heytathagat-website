@@ -7,6 +7,7 @@ import { TimeSelectionStep } from "@/components/booking/time-selection-step"
 import { BookingFormStep } from "@/components/booking/booking-form-step"
 import { BookingConfirmation } from "@/components/booking/booking-confirmation"
 import { AnimatePresence, motion } from "framer-motion"
+import { X } from "lucide-react"
 
 export type BookingStep = "calendar" | "time" | "form" | "confirmation"
 
@@ -84,6 +85,15 @@ export function BookingModal({
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[550px] p-0 gap-0 overflow-hidden">
+        {/* Close button */}
+        <button
+          onClick={handleClose}
+          className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+        >
+          <X className="h-4 w-4" />
+          <span className="sr-only">Close</span>
+        </button>
+
         {step !== "confirmation" && (
           <div className="px-6 pt-6">
             <div className="flex items-center justify-between mb-2">

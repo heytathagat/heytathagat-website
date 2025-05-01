@@ -95,6 +95,21 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Calendar specific styles */
+.calendar button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.calendar button:not(:disabled):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.calendar button[aria-selected="true"] {
+  background-color: black;
+  color: white;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

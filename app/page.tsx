@@ -111,6 +111,9 @@ export default function Home() {
     "Nominated for Bharat Business Awards",
     "Scaled my business to 2.2M USD annually bootstrapped",
     "Featured in 11+ news websites including RNI NEWS, DAILY Hunt, The News Bulletin, and more",
+    "MENTOR at Startup India",
+    "Mentor at Startup Punjab",
+    "Member for Google For Startups",
   ]
 
   const skills = [

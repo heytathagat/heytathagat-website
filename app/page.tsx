@@ -230,7 +230,7 @@ export default function Home() {
                   className="relative z-10"
                 >
                   <Image
-                    src="http://media.licdn.com/dms/image/v2/D5603AQEC3QtpeXV1Mw/profile-displayphoto-shrink_200_200/B56ZSYtm7NHQAY-/0/1737728881598?e=2147483647&v=beta&t=h1yV89A-TIOI13nvFV4WXDqMuyslxYMXjeQAujhUr0U"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250321-191550.Photos.jpg-r4xC8FcEfMz3i7yjnTaFfu0WTYdhQF.jpeg"
                     alt="Tathagat Kumar"
                     width={400}
                     height={400}

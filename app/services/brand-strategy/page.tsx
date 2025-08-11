@@ -5,7 +5,6 @@ import { CheckCircle, Diamond, Eye, Target, Layers, Star, ArrowRight, TrendingUp
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
-import { BookingButton } from "@/components/booking-button"
 
 export default function BrandStrategyPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -60,16 +59,15 @@ export default function BrandStrategyPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-                  <BookingButton
+                  <Button
                     size="lg"
                     className="group relative overflow-hidden rounded-full border-2 border-black bg-black px-10 py-4 text-white font-bold text-lg transition-all hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
-                    sourceContext={{ page: "brand_strategy", buttonType: "primary_cta" }}
                   >
                     <span className="relative z-10 flex items-center">
                       Book Free Strategy Call
                       <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </span>
-                  </BookingButton>
+                  </Button>
                   <Button
                     variant="outline"
                     size="lg"
@@ -306,12 +304,12 @@ export default function BrandStrategyPage() {
                     Companies that invest in strategic branding consistently outperform competitors and command premium
                     pricing in their markets.
                   </p>
-                  <BookingButton className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-10 py-4 text-black font-bold text-lg transition-all hover:bg-black hover:text-white hover:scale-105">
+                  <Button className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-10 py-4 text-black font-bold text-lg transition-all hover:bg-black hover:text-white hover:scale-105">
                     <span className="relative z-10 flex items-center">
                       Build Your Brand Strategy
                       <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </span>
-                  </BookingButton>
+                  </Button>
                 </div>
               </motion.div>
             </div>
@@ -463,15 +461,12 @@ export default function BrandStrategyPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <BookingButton
-                  className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-12 py-5 text-black font-black text-xl transition-all hover:bg-black hover:text-white hover:scale-105 hover:shadow-2xl"
-                  sourceContext={{ page: "brand_strategy", buttonType: "secondary_cta" }}
-                >
+                <Button className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-12 py-5 text-black font-black text-xl transition-all hover:bg-black hover:text-white hover:scale-105 hover:shadow-2xl">
                   <span className="relative z-10 flex items-center">
                     Claim Your Free Strategy Session
                     <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-1" />
                   </span>
-                </BookingButton>
+                </Button>
               </motion.div>
             </div>
           </div>

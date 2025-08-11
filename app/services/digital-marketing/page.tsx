@@ -17,7 +17,6 @@ import {
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
-import { BookingButton } from "@/components/booking-button"
 
 export default function DigitalMarketingPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -72,16 +71,15 @@ export default function DigitalMarketingPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-                  <BookingButton
+                  <Button
                     size="lg"
                     className="group relative overflow-hidden rounded-full border-2 border-black bg-black px-10 py-4 text-white font-bold text-lg transition-all hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
-                    sourceContext={{ page: "digital_marketing", buttonType: "primary_cta" }}
                   >
                     <span className="relative z-10 flex items-center">
                       Get Free Marketing Audit
                       <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </span>
-                  </BookingButton>
+                  </Button>
                   <Button
                     variant="outline"
                     size="lg"
@@ -304,12 +302,12 @@ export default function DigitalMarketingPage() {
                   My data-driven strategies have helped businesses across industries achieve consistent growth through
                   digital channels.
                 </p>
-                <BookingButton className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
+                <Button className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
                   <span className="relative z-10 flex items-center font-medium">
                     Claim Your Free Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </BookingButton>
+                </Button>
               </motion.div>
             </div>
           </div>
@@ -437,12 +435,12 @@ export default function DigitalMarketingPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <BookingButton className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
+                <Button className="relative overflow-hidden rounded-none border-2 border-white bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
                   <span className="relative z-10 flex items-center font-medium">
                     Claim Your Free Audit
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
-                </BookingButton>
+                </Button>
               </motion.div>
             </div>
           </div>

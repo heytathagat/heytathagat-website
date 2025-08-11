@@ -8,7 +8,6 @@ import { ArrowLeft, ArrowRight, Truck, Shirt, Users, TrendingUp, DollarSign, Glo
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
-import { BookingButton } from "@/components/booking-button"
 
 export default function BragfitPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -522,15 +521,12 @@ export default function BragfitPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-12"
             >
-              <BookingButton
-                className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-12 py-5 text-black font-black text-xl transition-all hover:bg-black hover:text-white hover:scale-105 hover:shadow-2xl"
-                sourceContext={{ page: "bragfit_case_study", buttonType: "cta" }}
-              >
+              <Button className="group relative overflow-hidden rounded-full border-2 border-white bg-white px-12 py-5 text-black font-black text-xl transition-all hover:bg-black hover:text-white hover:scale-105 hover:shadow-2xl">
                 <span className="relative z-10 flex items-center">
                   Book Strategy Call
                   <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-1" />
                 </span>
-              </BookingButton>
+              </Button>
             </motion.div>
           </div>
         </div>

@@ -2,13 +2,13 @@
 import { Button } from "@/components/ui/button"
 import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Briefcase, Users, Rocket, TrendingUp, ArrowRight } from "lucide-react"
+import { CheckCircle, Briefcase, Users, Rocket, TrendingUp, ArrowRight, Target, Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useScroll, useTransform } from "framer-motion"
 import { BookingButton } from "@/components/booking-button"
 
-export default function EntrepreneurshipPage() {
+export default function StartupMentorshipPage() {
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -23,56 +23,87 @@ export default function EntrepreneurshipPage() {
     <div className="flex min-h-screen flex-col bg-white font-montserrat">
       <main className="flex-1">
         {/* Hero Section */}
-        <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden pt-32 pb-20">
-          <div className="absolute inset-0 -z-10 bg-grid"></div>
+        <section ref={heroRef} className="relative min-h-screen overflow-hidden pt-20 pb-16">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+          </div>
 
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-            className="container relative px-4 md:px-6"
+            className="container relative px-4 md:px-6 flex items-center min-h-screen"
           >
-            <div className="max-w-3xl mx-auto text-center">
-              <Badge className="mb-4 rounded-none border-2 border-black bg-black text-white hover:bg-black">
-                Service
-              </Badge>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+            <div className="max-w-4xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-4xl sm:text-5xl font-bold tracking-tight mb-6"
+                className="space-y-8"
               >
-                Startup Mentorship
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
-              >
-                Get the strategic advantage you need to build, launch, and scale your startup successfully.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <BookingButton
-                  size="lg"
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
-                  sourceContext={{ page: "startup_mentorship", buttonType: "primary_cta" }}
-                >
-                  <span className="relative z-10 flex items-center font-medium">
-                    Book Free Consultation
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </span>
-                </BookingButton>
-                <Button
+                <Badge
                   variant="outline"
-                  size="lg"
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white"
+                  className="inline-flex items-center rounded-full border-2 border-black px-6 py-3 text-sm font-bold uppercase tracking-widest bg-white"
                 >
-                  <span className="relative z-10 flex items-center font-medium">View Success Stories</span>
-                </Button>
+                  <Rocket className="h-4 w-4 mr-2" />
+                  Startup Mentorship Service
+                </Badge>
+
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-none">
+                  Launch Your
+                  <span className="block bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">
+                    Startup Success
+                  </span>
+                </h1>
+
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-700">
+                  Get the strategic advantage you need to build, launch, and scale your startup successfully with proven
+                  frameworks and expert guidance.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+                  <BookingButton
+                    size="lg"
+                    className="group relative overflow-hidden rounded-full border-2 border-black bg-black px-10 py-4 text-white font-bold text-lg transition-all hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
+                    sourceContext={{ page: "startup_mentorship", buttonType: "primary_cta" }}
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Book Free Strategy Session
+                      <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </BookingButton>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="group rounded-full border-2 border-black bg-white px-10 py-4 text-black font-bold text-lg transition-all hover:bg-black hover:text-white hover:scale-105"
+                  >
+                    <span className="flex items-center">
+                      View Success Stories
+                      <Star className="ml-3 h-5 w-5 transition-transform group-hover:scale-110" />
+                    </span>
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-3 gap-8 pt-16 max-w-2xl mx-auto">
+                  {[
+                    { value: "7x", label: "More Funding", icon: TrendingUp },
+                    { value: "3.5x", label: "Higher Survival", icon: Target },
+                    { value: "85%", label: "Faster Launch", icon: Rocket },
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                      className="text-center group"
+                    >
+                      <div className="h-16 w-16 mx-auto mb-3 rounded-2xl bg-black text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <stat.icon className="h-8 w-8" />
+                      </div>
+                      <div className="text-3xl font-black text-black">{stat.value}</div>
+                      <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -5,29 +5,34 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { CardContent } from "@/components/ui/card"
-import {
-  ArrowRight,
-  Award,
-  Briefcase,
-  Building,
-  ChevronRight,
-  Laptop,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Newspaper,
-  School,
-  Users,
-  Youtube,
-} from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { useMobile } from "@/hooks/use-mobile"
-import { submitContactForm } from "./actions"
 import { SectionHeading } from "@/components/section-heading"
 import { LetterReveal } from "@/components/letter-reveal"
 import { DynamicText } from "@/components/dynamic-text"
 import { MarqueeText } from "@/components/marquee-text"
-import { BookingButton } from "@/components/booking-button"
+import { submitContactForm } from "@/app/actions"
+import {
+  ArrowRight,
+  Users,
+  Award,
+  Youtube,
+  Newspaper,
+  Briefcase,
+  MessageSquare,
+  Laptop,
+  ChevronRight,
+  Building,
+  School,
+  Mail,
+  MapPin,
+  Star,
+  Zap,
+  Target,
+  TrendingUp,
+  Clock,
+} from "lucide-react"
 
 export default function Home() {
   const isMobile = useMobile()
@@ -155,267 +160,321 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section id="hero" ref={heroRef} className="relative min-h-screen overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
-        <div className="absolute inset-0 -z-10 bg-grid"></div>
+      <section id="hero" ref={heroRef} className="relative min-h-screen overflow-hidden pt-20 pb-16 md:pt-24 md:pb-20">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div>
 
         <motion.div
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="container relative px-4 md:px-6"
         >
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center rounded-none border border-black px-3 py-1 text-sm font-medium uppercase tracking-widest">
-                <span className="flex h-2 w-2 rounded-full bg-black animate-pulse mr-2"></span>
-                Entrepreneur & Growth Strategist
-              </div>
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center min-h-[80vh]">
+            <div className="space-y-10 order-2 lg:order-1">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <Badge
+                  variant="outline"
+                  className="inline-flex items-center rounded-full border-2 border-black px-4 py-2 text-sm font-semibold uppercase tracking-widest bg-white"
+                >
+                  <Zap className="h-3 w-3 mr-2" />
+                  Entrepreneur & Growth Strategist
+                </Badge>
 
-              <div className="space-y-4">
-                <LetterReveal
-                  text="TATHAGAT KUMAR"
-                  className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
-                />
-                <h2 className="text-xl font-semibold uppercase tracking-widest">
-                  <DynamicText
-                    words={["Growth Strategist", "Tech Catalyst", "Brand Alchemist", "Digital Marketer"]}
-                    interval={2000}
+                <div className="space-y-6">
+                  <LetterReveal
+                    text="TATHAGAT KUMAR"
+                    className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-none"
                   />
-                </h2>
-                <p className="md:text-lg max-w-xl">
-                  A driven entrepreneur with a proven track record of building and scaling ventures that make an impact.
-                  Leading initiatives that drive growth, innovation, and brand success.
-                </p>
-              </div>
+                  <div className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-gray-800">
+                    <DynamicText
+                      words={["Growth Strategist", "Tech Catalyst", "Brand Alchemist", "Digital Marketer"]}
+                      interval={2500}
+                    />
+                  </div>
+                  <p className="text-lg md:text-xl max-w-2xl leading-relaxed text-gray-700">
+                    Transforming ambitious visions into market-leading realities. I help entrepreneurs and businesses
+                    scale through strategic innovation, data-driven growth, and authentic brand storytelling.
+                  </p>
+                </div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex flex-col sm:flex-row gap-6"
+              >
                 <Button
-                  className="relative overflow-hidden rounded-none border-2 border-black bg-black px-8 py-3 text-white transition-transform hover:bg-white hover:text-black"
+                  size="lg"
+                  className="group relative overflow-hidden rounded-full border-2 border-black bg-black px-10 py-4 text-white font-semibold text-lg transition-all hover:bg-white hover:text-black hover:scale-105"
                   onClick={() => {
                     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
                   }}
                 >
-                  <span className="relative z-10 flex items-center font-medium">
+                  <span className="relative z-10 flex items-center">
                     Explore My Work
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Button>
 
                 <Link href="/#contact">
-                  <Button className="relative overflow-hidden rounded-none border-2 border-black bg-white px-8 py-3 text-black transition-transform hover:bg-black hover:text-white">
-                    <span className="relative z-10 font-medium">Let's Connect</span>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="group rounded-full border-2 border-black bg-white px-10 py-4 text-black font-semibold text-lg transition-all hover:bg-black hover:text-white hover:scale-105"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Let's Connect
+                      <Target className="ml-3 h-5 w-5 transition-transform group-hover:rotate-90" />
+                    </span>
                   </Button>
                 </Link>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-4 pt-4">
-                <div className="flex -space-x-2">
-                  <div className="h-10 w-10 rounded-full bg-black flex items-center justify-center text-white font-bold">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex items-center gap-6 pt-6"
+              >
+                <div className="flex -space-x-3">
+                  <div className="h-12 w-12 rounded-full bg-black border-2 border-white flex items-center justify-center text-white font-bold text-sm shadow-lg">
                     11+
                   </div>
+                  <div className="h-12 w-12 rounded-full bg-white border-2 border-black flex items-center justify-center text-black font-bold text-sm shadow-lg">
+                    <Star className="h-5 w-5" />
+                  </div>
                 </div>
-                <div className="text-sm">
-                  <span className="font-medium">Featured in 11+ news websites</span>, a testament to innovation and
-                  impact
+                <div className="text-sm leading-relaxed">
+                  <span className="font-bold text-black">Featured in 11+ news websites</span>
+                  <br />
+                  <span className="text-gray-600">Recognized for innovation and market impact</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="relative mx-auto lg:mx-0">
-              <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-                <div className="absolute inset-0 rounded-none border-2 border-black"></div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative z-10"
-                >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="relative mx-auto lg:mx-0 order-1 lg:order-2"
+            >
+              <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-black to-gray-800 rotate-6 shadow-2xl"></div>
+                <div className="absolute inset-0 rounded-3xl border-4 border-black bg-white shadow-xl">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20250321-191550.Photos.jpg-r4xC8FcEfMz3i7yjnTaFfu0WTYdhQF.jpeg"
                     alt="Tathagat Kumar"
                     width={400}
                     height={400}
-                    className="object-cover relative z-10"
+                    className="object-cover rounded-2xl w-full h-full"
                     priority
                   />
-                </motion.div>
+                </div>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  className="absolute -bottom-4 -right-4 bg-white rounded-none p-3 shadow-lg border-2 border-black z-20"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="absolute -bottom-6 -right-6 bg-black text-white rounded-2xl p-4 shadow-2xl border-4 border-white"
                 >
-                  <div className="text-sm font-medium uppercase tracking-widest">Experience</div>
-                  <div className="text-2xl font-bold">8+ Years</div>
+                  <div className="text-xs font-bold uppercase tracking-widest">Experience</div>
+                  <div className="text-3xl font-black">8+ Years</div>
+                  <div className="text-xs opacity-80">Building & Scaling</div>
                 </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-6 mt-16"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-16 border-t-2 border-gray-200"
           >
-            <div className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              <span>Mentored at 50+ colleges</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="h-5 w-5" />
-              <span>Judged MLH-backed hackathons</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Youtube className="h-5 w-5" />
-              <span>8+ years as YouTuber</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Newspaper className="h-5 w-5" />
-              <span>Featured in 11+ news websites</span>
-            </div>
+            {[
+              { icon: Users, label: "50+ Colleges Mentored", value: "50+" },
+              { icon: Award, label: "MLH Hackathons Judged", value: "5+" },
+              { icon: Youtube, label: "Years as YouTuber", value: "8+" },
+              { icon: TrendingUp, label: "News Features", value: "11+" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                className="text-center group"
+              >
+                <div className="h-16 w-16 mx-auto mb-4 rounded-2xl bg-black text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <stat.icon className="h-8 w-8" />
+                </div>
+                <div className="text-2xl font-black text-black">{stat.value}</div>
+                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowRight className="h-6 w-6 rotate-90" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="h-12 w-12 rounded-full border-2 border-black bg-white flex items-center justify-center">
+            <ArrowRight className="h-6 w-6 rotate-90" />
+          </div>
         </div>
       </section>
 
-      {/* Marquee Section */}
-      <section className="py-8 bg-black text-white overflow-hidden">
-        <MarqueeText speed={30} className="text-xl md:text-2xl font-bold py-2">
-          GROWTH STRATEGIST • TECH CATALYST • BRAND ALCHEMIST • DIGITAL MARKETER • ENTREPRENEUR • GROWTH STRATEGIST •
-          TECH CATALYST • BRAND ALCHEMIST • DIGITAL MARKETER • ENTREPRENEUR
+      <section className="py-6 bg-black text-white overflow-hidden">
+        <MarqueeText speed={40} className="text-2xl md:text-3xl font-black py-4 tracking-wider">
+          GROWTH STRATEGIST • TECH CATALYST • BRAND ALCHEMIST • DIGITAL MARKETER • ENTREPRENEUR • INNOVATION LEADER •
+          STARTUP MENTOR • BUSINESS STRATEGIST • GROWTH STRATEGIST • TECH CATALYST • BRAND ALCHEMIST
         </MarqueeText>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+      <section id="about" className="py-32 md:py-40 relative overflow-hidden bg-gray-50">
         <div className="container px-4 md:px-6">
-          <SectionHeading
-            badge="About Me"
-            title="My Journey & Expertise"
-            description="From founding ventures to mentoring the next generation of entrepreneurs."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <Badge
+              variant="outline"
+              className="mb-6 rounded-full border-2 border-black px-6 py-2 text-sm font-bold uppercase tracking-widest"
+            >
+              About Me
+            </Badge>
+            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">My Journey & Expertise</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              From founding ventures to mentoring the next generation of entrepreneurs across the globe.
+            </p>
+          </motion.div>
 
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 mt-16">
+          <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
             >
-              <h3 className="text-xl font-bold">My Background</h3>
-              <p>
-                I am a driven entrepreneur with a proven track record of building and scaling ventures that make an
-                impact. As the Director of PYOB and Bragfit, I lead initiatives that drive growth, innovation, and brand
-                success, leveraging my expertise in affiliate marketing, branding, and digital strategy.
-              </p>
-              <p>
-                My entrepreneurial journey includes founding Tech Stockerzz, where I spent 4+ years mastering content
-                development, SEO, and digital marketing. This experience taught me the importance of adaptability,
-                creativity, and data-driven decision-making in building successful businesses.
-              </p>
-              <div className="pt-4">
-                <h4 className="font-semibold mb-3">Skills & Expertise</h4>
-                <div className="space-y-5">
-                  {skills.map((skill, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="font-semibold">{skill.level}%</span>
+              <Card className="rounded-3xl border-2 border-black shadow-xl bg-white overflow-hidden">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-black mb-6 flex items-center">
+                    <div className="h-8 w-8 rounded-full bg-black mr-4"></div>
+                    My Background
+                  </h3>
+                  <div className="space-y-6 text-gray-700 leading-relaxed">
+                    <p className="text-lg">
+                      I am a driven entrepreneur with a proven track record of building and scaling ventures that make
+                      an impact. As the Director of PYOB and Bragfit, I lead initiatives that drive growth, innovation,
+                      and brand success, leveraging my expertise in affiliate marketing, branding, and digital strategy.
+                    </p>
+                    <p className="text-lg">
+                      My entrepreneurial journey includes founding Tech Stockerzz, where I spent 4+ years mastering
+                      content development, SEO, and digital marketing. This experience taught me the importance of
+                      adaptability, creativity, and data-driven decision-making in building successful businesses.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-3xl border-2 border-black shadow-xl bg-white overflow-hidden">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-black mb-6 flex items-center">
+                    <div className="h-8 w-8 rounded-full bg-black mr-4"></div>
+                    Skills & Expertise
+                  </h3>
+                  <div className="space-y-6">
+                    {skills.map((skill, index) => (
+                      <div key={index} className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="font-bold text-lg">{skill.name}</span>
+                          <span className="font-black text-xl">{skill.level}%</span>
+                        </div>
+                        <div className="h-3 w-full bg-gray-200 rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, delay: index * 0.1 }}
+                            className="h-full bg-gradient-to-r from-black to-gray-700 rounded-full"
+                          />
+                        </div>
                       </div>
-                      <div className="h-2 w-full bg-gray-100 rounded-none overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.5, delay: index * 0.1 }}
-                          className="h-full bg-black"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold">Achievements</h3>
-                <div className="space-y-4">
-                  {achievements.map((achievement, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="rounded-none border-2 border-black p-4 hover:bg-black hover:text-white transition-colors"
-                    >
-                      <div className="flex items-start gap-3">
-                        <Award className="h-5 w-5 mt-1 shrink-0" />
-                        <div>
-                          <p>{achievement}</p>
+              <Card className="rounded-3xl border-2 border-black shadow-xl bg-white overflow-hidden">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-black mb-6 flex items-center">
+                    <div className="h-8 w-8 rounded-full bg-black mr-4"></div>
+                    Achievements
+                  </h3>
+                  <div className="space-y-4">
+                    {achievements.map((achievement, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="group rounded-2xl border-2 border-gray-200 p-6 hover:border-black hover:bg-black hover:text-white transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4">
+                          <Award className="h-6 w-6 mt-1 shrink-0 group-hover:text-white" />
+                          <p className="font-medium leading-relaxed">{achievement}</p>
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold">Beyond Business</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="rounded-none border-2 border-black p-4 hover:bg-black hover:text-white transition-colors"
-                  >
-                    <div className="font-medium uppercase tracking-widest text-sm">Colleges Mentored</div>
-                    <div className="text-3xl font-bold">50+</div>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="rounded-none border-2 border-black p-4 hover:bg-black hover:text-white transition-colors"
-                  >
-                    <div className="font-medium uppercase tracking-widest text-sm">Media Features</div>
-                    <div className="text-3xl font-bold">11+</div>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="rounded-none border-2 border-black p-4 hover:bg-black hover:text-white transition-colors"
-                  >
-                    <div className="font-medium uppercase tracking-widest text-sm">YouTube Experience</div>
-                    <div className="text-3xl font-bold">8+ yrs</div>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="rounded-none border-2 border-black p-4 hover:bg-black hover:text-white transition-colors"
-                  >
-                    <div className="font-medium uppercase tracking-widest text-sm">Hackathons Judged</div>
-                    <div className="text-3xl font-bold">5+</div>
-                  </motion.div>
-                </div>
-              </div>
+              <Card className="rounded-3xl border-2 border-black shadow-xl bg-black text-white overflow-hidden">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-black mb-6 flex items-center text-white">
+                    <div className="h-8 w-8 rounded-full bg-white mr-4"></div>
+                    Impact Metrics
+                  </h3>
+                  <div className="grid grid-cols-2 gap-6">
+                    {[
+                      { label: "Colleges Mentored", value: "50+", icon: Users },
+                      { label: "Media Features", value: "11+", icon: Newspaper },
+                      { label: "YouTube Experience", value: "8+ yrs", icon: Youtube },
+                      { label: "Hackathons Judged", value: "5+", icon: Award },
+                    ].map((metric, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="text-center p-4 rounded-2xl border-2 border-white hover:bg-white hover:text-black transition-all group"
+                      >
+                        <metric.icon className="h-8 w-8 mx-auto mb-3 group-hover:text-black" />
+                        <div className="text-3xl font-black mb-1">{metric.value}</div>
+                        <div className="text-sm font-medium opacity-80 group-hover:opacity-100">{metric.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
@@ -547,7 +606,7 @@ export default function Home() {
                       <Button
                         variant="outline"
                         size="lg"
-                        className="w-full mt-auto rounded-none border-2 border-black text-black hover:bg-black hover:text-white group-hover:border-white group-hover:text-black group-hover:bg-white transition-colors"
+                        className="w-full mt-auto rounded-none border-2 border-black text-black hover:bg-black hover:text-white group-hover:border-white group-hover:text-black group-hover:bg-white transition-colors bg-transparent"
                       >
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -618,7 +677,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Startups Section */}
       <section id="startups" className="py-24 md:py-32 relative overflow-hidden">
         <div className="container px-4 md:px-6">
           <SectionHeading
@@ -637,11 +695,11 @@ export default function Home() {
                 link: "/startups/bragfit",
               },
               {
-                name: "Mentor Labs",
+                name: "Foundr Flow",
                 description:
                   "A mentorship platform connecting students with industry experts to foster innovation and entrepreneurship.",
                 icon: <School className="h-16 w-16" />,
-                link: "/startups/mentor-labs",
+                link: "/startups/foundr-flow",
               },
             ].map((startup, index) => (
               <motion.div
@@ -723,15 +781,51 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
-        <div className="container px-4 md:px-6 relative">
-          <SectionHeading
-            badge="Contact"
-            title="Let's Work Together"
-            description="Ready to take your business to the next level? Get in touch."
-          />
+      <section id="contact" className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-40 h-40 border-4 border-black rotate-12" />
+          <div className="absolute bottom-20 right-20 w-32 h-32 border-4 border-black -rotate-12" />
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 border-4 border-black rotate-45" />
+        </div>
 
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 md:grid-cols-2 mt-16">
+        <div className="container px-4 md:px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block p-4 bg-black text-white rounded-full mb-6"
+            >
+              <Mail className="h-8 w-8" />
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              LET'S{" "}
+              <span className="relative">
+                CONNECT
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="absolute bottom-2 left-0 h-2 bg-black"
+                />
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Ready to transform your business? Let's discuss how we can work together to achieve your goals.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -741,90 +835,152 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="rounded-none border-2 border-black"
+                className="bg-white rounded-3xl border-4 border-black shadow-2xl p-8 relative overflow-hidden"
               >
-                <CardContent className="p-6">
-                  <form action={submitContactForm} className="space-y-4">
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="first-name"
-                          className="text-sm font-medium leading-none uppercase tracking-wider"
-                        >
-                          First name
-                        </label>
-                        <input
-                          id="first-name"
-                          name="first-name"
-                          className="flex h-10 w-full rounded-none border-2 border-black bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                          placeholder="Enter your first name"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="last-name"
-                          className="text-sm font-medium leading-none uppercase tracking-wider"
-                        >
-                          Last name
-                        </label>
-                        <input
-                          id="last-name"
-                          name="last-name"
-                          className="flex h-10 w-full rounded-none border-2 border-black bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                          placeholder="Enter your last name"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium leading-none uppercase tracking-wider">
-                        Email
+                {/* Form Header */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Send a Message</h3>
+                  <p className="text-gray-600">Fill out the form below and I'll get back to you within 24 hours.</p>
+                </div>
+
+                <form action={submitContactForm} className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="space-y-2"
+                    >
+                      <label
+                        htmlFor="first-name"
+                        className="text-sm font-bold leading-none uppercase tracking-wider text-gray-700"
+                      >
+                        First name *
                       </label>
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="flex h-10 w-full rounded-none border-2 border-black bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                        placeholder="Enter your email"
+                        id="first-name"
+                        name="first-name"
+                        className="flex h-12 w-full rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-black/10 focus:border-black transition-all duration-300"
+                        placeholder="Enter your first name"
                         required
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="company" className="text-sm font-medium leading-none uppercase tracking-wider">
-                        Company
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="space-y-2"
+                    >
+                      <label
+                        htmlFor="last-name"
+                        className="text-sm font-bold leading-none uppercase tracking-wider text-gray-700"
+                      >
+                        Last name *
                       </label>
                       <input
-                        id="company"
-                        name="company"
-                        className="flex h-10 w-full rounded-none border-2 border-black bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                        placeholder="Enter your company name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium leading-none uppercase tracking-wider">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        className="flex min-h-[120px] w-full rounded-none border-2 border-black bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                        placeholder="Tell me about your business and how I can help"
+                        id="last-name"
+                        name="last-name"
+                        className="flex h-12 w-full rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-black/10 focus:border-black transition-all duration-300"
+                        placeholder="Enter your last name"
                         required
-                      ></textarea>
-                    </div>
+                      />
+                    </motion.div>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="space-y-2"
+                  >
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-bold leading-none uppercase tracking-wider text-gray-700"
+                    >
+                      Email *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="flex h-12 w-full rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-black/10 focus:border-black transition-all duration-300"
+                      placeholder="Enter your email address"
+                      required
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="space-y-2"
+                  >
+                    <label
+                      htmlFor="company"
+                      className="text-sm font-bold leading-none uppercase tracking-wider text-gray-700"
+                    >
+                      Company
+                    </label>
+                    <input
+                      id="company"
+                      name="company"
+                      className="flex h-12 w-full rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-black/10 focus:border-black transition-all duration-300"
+                      placeholder="Enter your company name"
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="space-y-2"
+                  >
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-bold leading-none uppercase tracking-wider text-gray-700"
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      className="flex min-h-[140px] w-full rounded-xl border-2 border-gray-300 bg-white px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-black/10 focus:border-black transition-all duration-300 resize-none"
+                      placeholder="Tell me about your business goals and how I can help you achieve them..."
+                      required
+                    ></textarea>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                  >
                     <Button
                       type="submit"
-                      className="w-full bg-black text-white rounded-none hover:bg-white hover:text-black border-2 border-black transition-colors"
+                      className="group w-full bg-black text-white rounded-xl hover:bg-gray-800 border-2 border-black transition-all duration-300 h-14 text-lg font-bold hover:scale-105 hover:shadow-xl"
                       size="lg"
                     >
-                      Send Message
+                      <span className="flex items-center justify-center gap-3">
+                        Send Message
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </span>
                     </Button>
-                  </form>
-                </CardContent>
+                  </motion.div>
+                </form>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-black rounded-full opacity-10" />
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-black rounded-full opacity-5" />
               </motion.div>
             </motion.div>
 
+            {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -832,129 +988,83 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              <div>
-                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="h-10 w-10 rounded-none border-2 border-black flex items-center justify-center">
-                      <Mail className="h-5 w-5" />
+              <div className="bg-white rounded-3xl border-4 border-black p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:border-black transition-all duration-300"
+                  >
+                    <div className="h-12 w-12 rounded-full bg-black flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium uppercase tracking-wider text-sm">Email</p>
-                      <p>mail@heytathagat.in</p>
+                      <h4 className="font-bold text-lg mb-1">Email</h4>
+                      <a
+                        href="mailto:mail@heytathagat.in"
+                        className="text-gray-600 hover:text-black transition-colors font-medium"
+                      >
+                        mail@heytathagat.in
+                      </a>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="h-10 w-10 rounded-none border-2 border-black flex items-center justify-center">
-                      <MapPin className="h-5 w-5" />
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:border-black transition-all duration-300"
+                  >
+                    <div className="h-12 w-12 rounded-full bg-black flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium uppercase tracking-wider text-sm">Location</p>
-                      <p>Punjab, India</p>
+                      <h4 className="font-bold text-lg mb-1">Location</h4>
+                      <p className="text-gray-600 font-medium">Punjab, India</p>
                     </div>
-                  </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:border-black transition-all duration-300"
+                  >
+                    <div className="h-12 w-12 rounded-full bg-black flex items-center justify-center flex-shrink-0">
+                      <Clock className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Response Time</h4>
+                      <p className="text-gray-600 font-medium">Within 24 hours</p>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
-                <p className="mb-4">
-                  Schedule a free 15-minute discovery call to discuss how I can help your business grow.
-                </p>
-                <BookingButton
-                  className="w-full bg-black text-white rounded-none hover:bg-white hover:text-black border-2 border-black transition-colors"
-                  sourceContext={{ page: "homepage", buttonType: "contact_section" }}
-                >
-                  Book a Call
-                </BookingButton>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold mb-4">Follow Me</h3>
+              {/* Social Links */}
+              <div className="bg-black text-white rounded-3xl p-8">
+                <h3 className="text-2xl font-bold mb-6">Connect on Social</h3>
                 <div className="flex gap-4">
-                  <a
+                  <motion.a
                     href="https://www.linkedin.com/in/heytathagat"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group h-12 w-12 rounded-none border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 transition-transform group-hover:scale-110"
-                    >
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                       <rect width="4" height="12" x="2" y="9"></rect>
                       <circle cx="4" cy="4" r="2"></circle>
                     </svg>
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="#"
-                    className="group h-12 w-12 rounded-none border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 transition-transform group-hover:scale-110"
-                    >
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                     </svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="group h-12 w-12 rounded-none border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 transition-transform group-hover:scale-110"
-                    >
-                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="group h-12 w-12 rounded-none border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 transition-transform group-hover:scale-110"
-                    >
-                      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-                      <path d="m10 15 5-3-5-3z"></path>
-                    </svg>
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
